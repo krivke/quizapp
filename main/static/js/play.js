@@ -43,7 +43,7 @@ function hidden_loader(length){
 }
 
 function fetchForDatabase(category,text,correct_answer,solved){
-    var url = "http://127.0.0.1:8000/add_question/"
+    var url = "https://myawsomequizapp.herokuapp.com/add_question/"
     var data = {
         category:category,
         text:text,

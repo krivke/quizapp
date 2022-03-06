@@ -102,7 +102,7 @@ play_btn.addEventListener("click",function(e){
     })
     
  
-    window.location.href = "http://127.0.0.1:8000/play/" + SET_CATEGORY + "/" + SET_DIFFICULTY + "/"+SET_TYPE + "/"+ GAME_MODE + "/"
+    window.location.href = "https://myawsomequizapp.herokuapp.com/play/" + SET_CATEGORY + "/" + SET_DIFFICULTY + "/"+SET_TYPE + "/"+ GAME_MODE + "/"
     
     
 })
