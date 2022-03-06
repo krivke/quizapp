@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ["myawsomequizapp.herokuapp.com"]
 # Application definition
 
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,9 +122,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATIC_URL = "/static/"
-
 
 
 # Default primary key field type
@@ -138,4 +137,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR,MEDIA_URL)
 
 STATIC_ROOT =  os.path.join(BASE_DIR,"staticfiles")
 LOGIN_URL ="/"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
