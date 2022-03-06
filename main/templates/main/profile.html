@@ -1,0 +1,30 @@
+{%extends 'main/base.html'%}
+{%load static%}
+{%block css%}
+<link rel="stylesheet" href="{%static 'css/profile.css'%}">
+{%endblock%}
+
+{%block content%}
+<section id="profile-section">  
+    <h1 class="mt5"><span style="text-transform: uppercase;">{{request.user.profile}}</span>'s profile</h1>
+    <p class="note">After 6 hours of inactivity your token will expire. <br> 
+        When you generate new token all of your old data(successes) will be deleted. <br>
+        <span style="color:#88ffa0;">As your already know the goal is to give a correct answer 
+        to as many questions as you can and not taking break for more then 6 hours</span>
+    </p><br>
+    <form method="POST">
+        {%csrf_token%}
+            Token: <span id="token">{{request.user.profile.token}}</span>
+      
+            <br>
+        <button type="submit" class="btn">Generate Token</button>
+    </form>
+</section>
+
+
+{%endblock%}
+
+{%block js%}
+<script type="application/javascript" src="{%static 'js/profile.js'%}"></script>
+    
+{%endblock%}

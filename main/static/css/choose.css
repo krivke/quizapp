@@ -1,0 +1,285 @@
+.question-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 560px;
+    border:1px solid rgb(255,255,255,0.3);
+    position: relative;
+    margin-top: 13rem;
+    color:white;
+    margin-bottom: 2rem;
+}
+
+.question{
+   position: absolute;
+   top:-25px;
+   background-color: var(--dark-blue);
+   color:var(--light-blue);
+   font-size: 3rem;
+   max-width: 80%;
+  text-align: center;
+}
+
+.question-container-image{
+  width: 30%;
+  position: fixed;
+  left:-50px;
+  bottom:-50px;
+  opacity: 0.95;
+ 
+  
+}
+
+.btn-choose{
+  background-color:inherit;
+  border:1px solid  rgb(255,255,255,0.8);
+  color:white;
+  width: 300px;
+  height: 43px;
+  display: block;
+  font-size: 2rem;
+  
+  
+  background: linear-gradient(to left, var(--dark-blue) 50%, #407bff  50%) right;
+  background-size: 200%;
+  transition: .5s ease-out;
+}
+.btn-choose:hover{
+ background-position: left;
+
+}
+
+.text{
+  font-size: 1.8rem;
+  text-align: center;
+}
+.text span{
+  color:var(--light-blue);
+  font-weight: bold;
+  
+}
+
+.progress{
+  position: absolute;
+  top:20px;
+  right:50px;
+  font-size: 3rem;
+  z-index: 500;
+  color:var(--lighter-blue);
+}
+.go-back{
+  position: absolute;
+  top:28px;
+  left:50px;
+  font-size: 3rem;
+  z-index: 500;
+  color:var(--light-blue);
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.title{
+  text-align: center;
+  font-size: 2.5rem;
+  color:var(--lighter-blue);
+  margin-bottom: 1rem;
+}
+
+.secondary{
+  padding:0;
+  background: inherit;
+}
+.play-button{
+  background:#3C75F4;
+}
+
+.primary-section, .secondary-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.invisible-section{
+  visibility: hidden;
+  position: absolute;
+  top:-1000px;
+}
+
+.visible-section{
+  position: static;
+  visibility: visible;
+}
+/*FLICKITY*/
+.main-carousel{
+  max-height: 100%;
+  width: 100%;
+   
+}
+.carousel-cell-play{
+  width: 100%;
+  padding:1rem;
+  color:white;
+  font-size: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-cell p{
+  max-width: 100%;
+}
+.flickity-viewport{
+  height: 43px !important;
+}
+
+.flickity-button{
+  background: transparent;
+}
+.flickity-button-icon {
+  fill: white;
+}
+.flickity-prev-next-button{
+  width: 30px;
+  height: 30px;
+}
+.flickity-page-dots {
+ display: none;
+}
+.flickity-button:disabled {
+  display: none;
+}
+.flickity-button:hover{
+  background-color: var(--dark-blue);
+}
+
+
+/*** MEDIA QUERIES***/
+
+
+
+@media screen and (max-width:1400px){
+  .question-container-image{
+   
+    left:0;
+    bottom:0;
+  }
+  
+}
+@media screen and (max-width:990px){
+  .flickity-button{
+    display: block;
+  }
+}
+
+/*PHONES*/
+@media screen and (max-width:768px) {
+  .question-container{
+    margin-top: 9rem;
+  }
+  .question{
+    top:-30px;
+  }
+  .separator-div{
+    width: 100%;
+  }
+  .btn-choose{
+    margin:0 auto;
+  }
+  .progress{
+    font-size: 2.5rem;
+    top:40px;
+    right:20px
+  }
+  .go-back{
+    
+    top:48px;
+    left:20px;
+    
+  }
+  .container{
+    width: 90%;
+  }
+  
+  .question{
+      font-size: 2rem;
+      top:-17px;
+  }
+ 
+  .title{
+    font-size: 2.15rem;
+  }
+  .text{
+    font-size: 1.5rem;
+      width:90%;
+    }
+    
+    .play-button{
+      margin-top: 3rem;
+    }
+    .question-container-image{
+      display: none;
+    }
+  }
+  #friends{
+    margin-top: 3rem;
+    cursor:not-allowed;
+  }
+@media screen and (min-width:600px){
+  .question{
+    font-size: 2.5rem;
+    top:-20px;
+  }
+  .progress{
+    font-size: 2.7rem;
+  }
+  
+  
+}
+@media screen and (max-width:400px){
+  .btn-choose{
+    width: 80%;
+    margin:0 auto;
+  }
+  .play-button{
+    margin-top: 3rem;
+  }
+  .primary{
+    font-size: 1.5rem;
+  }
+}
+
+/*LAPTOPS*/
+@media screen and (min-width:768px) and (max-width:1024px) {
+  .container{
+    width: 80%;
+  }
+  .question{
+    font-size: 2.5rem;
+  }
+  .question-container-image{
+    display: block;
+    width: 25%;
+    bottom: 0;
+    left:0;
+  }
+}
+
+/*HEIGHTS*/  
+@media screen and (max-height:800px) {
+    .question-container-image{
+      display: none;
+    }
+}
+@media screen and (min-height:1000px) {
+    .question-container-image{
+      display: none;
+    }
+}
+
+

@@ -1,0 +1,115 @@
+{%extends 'main/base.html'%}
+{%load static%}
+{%block css%}
+<link rel="stylesheet" href="{%static 'css/choose.css'%}">
+    
+{%endblock%}
+{%block content%}
+
+
+<div class="question-container">
+    {%block questions%}
+    <i class="fa-solid fa-angle-left go-back"></i>
+
+    <p class="progress">1/2</p>
+    <h1 class="question">Choose how you want to play the game</h1>
+    
+    <div class="primary-section">
+        <button class="btn btn-choose primary" id="solo" >Play Solo</button>
+        
+        <button class="btn btn-choose primary  mt5" id="friends">Play with friends</button>
+        <p class="mt5 text"><span>Note:</span> Currently unable to choose 'play with friends' option.</p>
+    </div>
+
+    <div class="secondary-section invisible-section" >
+        
+       
+           
+    <div class="separator-div mt3">
+        <h1 class="title">Category</h1>
+        <button class="btn btn-choose secondary" type="button">
+            <div class="main-carousel-play">
+                <div class="carousel-cell-play" data-id="8">
+                    Any
+                </div>
+                {%for category in cdict%}
+                    {%if category.name|length > 24 and category.name|length < 32%}
+                    
+                    <div class="carousel-cell-play" data-id="{{category.id}}" style="font-size: 0.8em;">
+                        {{category.name}}
+                    </div>
+                    {%elif category.name|length > 32%}
+                    <div class="carousel-cell-play" data-id="{{category.id}}" style="font-size: 0.62em;">
+                        {{category.name}}
+                    </div>
+                    {%else%}
+                    <div class="carousel-cell-play" data-id="{{category.id}}">
+                        {{category.name}}
+                    </div>
+                    {%endif%}
+                {%endfor%}
+            </div>
+        </button>
+    </div>
+    <div class="mt3 separator-div">
+        <h1 class="title">Difficulty</h1>
+        
+        <button class="btn btn-choose secondary" type="button">
+            <div class="main-carousel-difficulty">
+                <div class="carousel-cell-play" data-id="any">
+                    Any
+                </div>
+                <div class="carousel-cell-play" data-id="hard">
+                    Hard
+                </div>
+                <div class="carousel-cell-play" data-id="medium">
+                    Medium
+                </div>
+                <div class="carousel-cell-play" data-id="easy">
+                    Easy
+                </div>
+            </div>
+            
+        </button>
+    </div>
+    
+    
+    <div class="mt3 separator-div" >
+        
+        <h1 class="title">Type</h1>
+        <button class="btn btn-choose secondary" type="button">
+            <div class="main-carousel-type">
+                <div class="carousel-cell-play" data-id="any">
+                    Any
+                </div>
+                <div class="carousel-cell-play" data-id="multiple">
+                    Multiple Choice
+                </div>
+                <div class="carousel-cell-play" data-id="boolean">
+                    True/False
+                </div>
+            </div>
+            
+        </button>
+        
+        
+    </div>
+    <button class="btn btn-choose play-button mt3">Play</button>
+
+ 
+    
+</div>  
+
+</div>
+
+{%endblock%}
+
+<img src="{%static 'images/lesson.png'%}" class="question-container-image" >
+
+
+{%endblock%}
+
+{%block js%}
+<script type="application/javascript" src="{%static 'js/choose.js'%}"></script>
+    
+{%endblock%}

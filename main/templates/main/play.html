@@ -1,0 +1,33 @@
+{%extends 'main/choose.html'%}
+{%load static%}
+{%block css%}
+<link rel="stylesheet" href="{%static 'css/choose.css'%}">
+<link rel="stylesheet" href="{%static 'css/play.css'%}">
+{%endblock%}
+
+
+{%block questions%}
+      {{url|json_script:"url"}}
+        <div id="local-storage" class="hidden">Your browser isn't compatible with Local Storage. Please activate Local Storage.</div>
+      <div id="loader"></div>
+      
+      <h1 id="question" class="question hidden">{{category}}</h1>
+
+      <div id="noMoreQ" class="hidden">
+        You have exhausted all of the questions.You can reset questions by reseting token! <br>
+        
+        <a href="">See what you answered wrong here!</a></div>
+      <button class="btn btn-choose secondary hidden" type="button" id="choice1">...</button>
+      <button class="btn btn-choose secondary mt3 hidden" type="button" id="choice2">...</button>
+      <button class="btn btn-choose secondary mt3 hidden" type="button" id="choice3">...</button>
+      <button class="btn btn-choose secondary mt3 hidden" type="button" id="choice4">...</button>
+  
+    {{total_number_of_questions}}
+   {%endblock questions%}
+
+
+{%block js%}
+
+<script type="module" src="{%static 'js/play.js'%}"></script>
+    
+{%endblock%}

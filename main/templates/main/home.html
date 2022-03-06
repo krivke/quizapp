@@ -1,0 +1,94 @@
+{%extends 'main/base.html'%}
+{%load static%}
+{%load custom_tags%}
+{%block css%}
+
+<link rel="stylesheet" href="{%static 'css/home.css'%}">
+{%endblock%}
+
+{%block content%}
+
+{%if user.is_authenticated%}
+<div class="alert-message">
+  After 6 hours of inactivity you will have to regenerate your token,
+  <a style="text-decoration: underline;" href="{%url 'profile'%}">Here!</a>
+  <i class="fa-solid fa-xmark" id="delete-message"></i>
+</div>
+{%endif%}
+<svg xmlns="http://www.w3.org/2000/svg" class="fixed-svg" width="125.222" height="1512.227" viewBox="0 0 125.222 1512.227">
+  <g id="Group_102" data-name="Group 102" transform="translate(-1695.738)">
+    <path id="Path_3" data-name="Path 3" d="M1740,12V352.186h81.46V429.3h-77.115s-6.893,9.478,0,17.663c2.861,3.4,15.938,2.38,32.678,2.369,18.958-.153,39.574-.468,43.972-.439.169,0,.464.439.464.439V713.652l-58.454-23.694-58.988,23.694,58.988,24.026L1821.2,714.22l-19.261,8.818,1.344,46.174s-8.268,4.8-23.863,7.011a126.813,126.813,0,0,1-16.864,1.569,70.5,70.5,0,0,1-11.373-.98,126.615,126.615,0,0,1-18.923-4.216c-3.84-1.263-9.094-2.612-9.119-4.609-.284-21.972,0-45.818,0-45.818l-19.884-7.716v41.453l1.425,2.485-1.425,2.485v366.818h99.805v89.636h-99.805v-40.408h38.082v16.216l20.9-21.286-20.9-21.286v16.315h-44.1v357.344" transform="translate(-1 -12)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Path_4" data-name="Path 4" d="M1756.465,366.218v14.2h51.583v-14.2Z" transform="translate(2 -12)" fill="none" stroke="#fff" stroke-width="1"/>
+  </g>
+</svg>
+
+
+<div class="main-container">
+    <div class="play">
+     
+      {%if  request.user.is_authenticated%}
+      <a href="{%url 'settings'%}"><button class="btn">Play</button></a>
+      {%else%}
+      <a href="#loginsection"><button class="btn">Play</button></a>
+      {%endif%}
+      </div>
+      <div class="stats">
+       {%if request.user.is_authenticated%}
+        <a href="#stats"><button class="btn">Stats</button></a>
+        
+        {%else%}
+        <a href="#loginsection"><button class="btn">Stats</button></a>
+      
+       {%endif%}
+        
+    </div>
+    <div class="image">
+      <img src="{%static 'images/knowleadge.png'%}" alt="" class="main-image">
+    </div>
+   
+</div>
+
+{%if  request.user.is_authenticated%}
+<section class="category-div" id="stats">
+  <h1>Stats <i class="fa-solid fa-bars-progress" style="font-size: 3rem;"></i></h1>
+
+  <div id="not-sliced-categories">
+    {%for key,value in categories.items%}
+    <div class="category mt3" data-id="{{value}}">
+      <section class="description-section">
+        <span class="section-span">
+          <span class="value">{{value}} </span>
+          <span class="line"></span> 
+        </span>
+        <span class="success_ratio section-span">
+          <span class="fraction" id="{{value}}-fraction">{% total_q total_questions value key request.user.profile %}</span>
+        
+          <span class="percentage" id="{{value}}-percent">{% percentage total_questions value key request.user.profile %}</span>
+          <span class="line"></span>  
+        </span>
+        <span class="pending_q" id="{{value}}-pending">pending questions: {% pending_q total_questions key %}</span>
+      </section>
+      <div class="progress-bar">
+        <div class="progress-bar-inner" id="{{value}}-bar" data-id="{% percentage total_questions value key request.user.profile %}">
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+
+  <p class="see-more-button mt3 fa-bounce" id="arrow-down"  style="--fa-bounce-height:-2px;--fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y: 1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0;cursor: pointer;">See more <br><i class="fa-solid fa-circle-arrow-down "></i></p>
+  <p class="see-more-button mt3 fa-bounce hidden"  id="arrow-up" style="--fa-bounce-height:-2px;--fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y: 1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0;cursor: pointer;">See less <br><i class="fa-solid fa-circle-arrow-up "></i></p>
+</section>
+{%endif%}
+
+
+{%endblock%}
+
+
+{%block js%}
+
+<script src="{%static 'js/home.js'%}"></script>
+
+{%endblock%}
+</body>
+</html>
