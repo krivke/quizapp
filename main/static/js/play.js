@@ -11,7 +11,7 @@ var CURRENT_QUESTION = ""
 
 var localStorage = window.localStorage
 
-console.log(fetchUrl)
+
 function getToken(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -61,10 +61,10 @@ function fetchForDatabase(category,text,correct_answer,solved){
         body:JSON.stringify(data)
     }).then(response=>{return response.json()})
     .then(data=>{
-        console.log("Success: ",data)
+        console.log("Success")
     })
     .catch(error=>{
-        console.log("Error: ",error)
+        console.log("Error")
     })
 }   
 
@@ -116,7 +116,7 @@ function fetchQuestion(url){
 
     })
     .catch((error)=>{
-        console.log("New Error: ",error)
+        console.log("New Error")
     })
 }
 

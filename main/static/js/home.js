@@ -107,7 +107,7 @@ seeMoreBtns.forEach(btn=>{
             notSlicedCategories.style.height = "500px"
         }
     })
-    console.log(btn.id)
+  
 })
 
 var x = document.getElementById("delete-message")
