@@ -122,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_HOST = "myawsomequizapp.herokuapp.com/" if not DEBUG else ""
+
 STATIC_URL = "/static/"
 
 
