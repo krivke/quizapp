@@ -408,7 +408,7 @@ a{
         display: none;
     }
 }
-@media only screen and (max-width: 352px) {
+@media only screen and (max-width: 430px) {
     
     #navbar-ul .login-item{
         margin-top: 2rem;
