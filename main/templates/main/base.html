@@ -78,7 +78,7 @@
             <div class="carousel-cell" id="carousel-cell2">       
                 <div class="login-container">                            
                     <h1>Register here!</h1>
-                    {% if messages %}
+                    {% if messages.success %}
                         <ul class="messages">
                         {% for message in messages %}
                         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>

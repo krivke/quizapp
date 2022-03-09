@@ -1,6 +1,5 @@
 
 import json
-from multiprocessing import context
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import Http404, JsonResponse
@@ -17,12 +16,13 @@ from .categories import (
                             NUMBER_OF_QUESTIONS_URL,
                             CATEGORIES_DICT,         
                             )
-from .forms import UserRegisterForm,LoginForm
+from .forms import ProfileForm, UserRegisterForm,LoginForm
 
 
 def home(request):
     register_form = UserRegisterForm(request.POST or None)
     login_form = LoginForm(request.POST or None)
+   
     if register_form.is_valid():
         register_form.save()
         messages.success(request, 'Account has been successfully created!')
@@ -33,8 +33,7 @@ def home(request):
         login_form.save(request)
         messages.success(request,"You have beend succesfully logged in!")
         login_form = LoginForm()
-    #register_form = UserRegisterForm() - will cause no errors even though there are
-
+   
     total_questions = requests.get(NUMBER_OF_QUESTIONS_URL).json()
 
 
@@ -61,8 +60,8 @@ def profile(request):
         profile.token = new_token
         profile.save()
     
-    context  = {}
-    return render(request,"main/profile.html",context)
+
+    return render(request,"main/profile.html",{})
 
 @login_required
 def settings(request):
@@ -109,7 +108,7 @@ def play(request,category,difficulty,type,game_mode):
         "category":wanted_category,
         "url":URL,    
     }
-    print(URL)
+
 
     return render(request,"main/play.html",context)
 
